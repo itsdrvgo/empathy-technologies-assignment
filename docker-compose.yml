@@ -1,18 +1,27 @@
-version: "3"
+version: "3.9"
 
 services:
-    app:
+    backend:
         build:
-            context: .
+            context: ./server
             dockerfile: Dockerfile
         ports:
-            - "3001:3001" # Backend API
-            - "3000:3000" # Frontend
+            - "3001:3001"
         environment:
-            - FRONTEND_URL=${FRONTEND_URL}
-            - INSTAGRAM_CLIENT_ID=${INSTAGRAM_CLIENT_ID}
-            - INSTAGRAM_CLIENT_SECRET=${INSTAGRAM_CLIENT_SECRET}
-            - INSTAGRAM_REDIRECT_URI=${INSTAGRAM_REDIRECT_URI}
-            - DOMAIN=${DOMAIN}
-            - NEXT_PUBLIC_BACKEND_URL=${NEXT_PUBLIC_BACKEND_URL}
-        restart: unless-stopped
+            PORT: 3001
+            FRONTEND_URL: ${FRONTEND_URL}
+            INSTAGRAM_CLIENT_ID: ${INSTAGRAM_CLIENT_ID}
+            INSTAGRAM_CLIENT_SECRET: ${INSTAGRAM_CLIENT_SECRET}
+            INSTAGRAM_REDIRECT_URI: ${INSTAGRAM_REDIRECT_URI}
+            DOMAIN: ${DOMAIN}
+        restart: always
+
+    frontend:
+        build:
+            context: ./www
+            dockerfile: Dockerfile
+        ports:
+            - "3000:3000"
+        environment:
+            NEXT_PUBLIC_BACKEND_URL: ${NEXT_PUBLIC_BACKEND_URL}
+        restart: always
