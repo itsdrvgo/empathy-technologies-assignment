@@ -1,0 +1,12 @@
+.env
+.env.*
+**/node_modules
+**/.git
+**/.gitignore
+**/README.md
+**/.DS_Store
+**/build
+**/dist
+**/*.log
+**/npm-debug.log*
+**/.next/cache
