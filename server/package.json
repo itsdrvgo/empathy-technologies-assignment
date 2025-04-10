@@ -1,0 +1,44 @@
+{
+    "name": "server",
+    "module": "src/app.ts",
+    "type": "module",
+    "private": true,
+    "scripts": {
+        "dev": "bun run --watch src/app.ts",
+        "build": "bun run build.ts",
+        "start": "bun run build && bun run build/app.js",
+        "lint": "eslint . --ext .ts,.js,.json,.md"
+    },
+    "devDependencies": {
+        "@eslint/css": "^0.6.0",
+        "@eslint/js": "^9.24.0",
+        "@eslint/json": "^0.11.0",
+        "@eslint/markdown": "^6.3.0",
+        "@ianvs/prettier-plugin-sort-imports": "^4.4.1",
+        "@total-typescript/tsconfig": "^1.0.4",
+        "@types/body-parser": "^1.19.5",
+        "@types/bun": "^1.2.8",
+        "@types/cookie-parser": "^1.4.8",
+        "@types/cors": "^2.8.17",
+        "@types/express": "^5.0.1",
+        "eslint": "^9.24.0",
+        "eslint-plugin-unused-imports": "^4.1.4",
+        "globals": "^16.0.0",
+        "prettier": "3.5.3",
+        "typescript-eslint": "^8.29.1"
+    },
+    "peerDependencies": {
+        "typescript": "^5.8.3"
+    },
+    "dependencies": {
+        "@t3-oss/env-core": "^0.12.0",
+        "axios": "^1.8.4",
+        "body-parser": "^2.2.0",
+        "chalk": "^5.4.1",
+        "cookie-parser": "^1.4.7",
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.7",
+        "express": "^5.1.0",
+        "zod": "^3.24.2"
+    }
+}
