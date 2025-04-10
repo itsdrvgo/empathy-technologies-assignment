@@ -3,7 +3,6 @@ FROM oven/bun
 WORKDIR /app
 
 COPY package.json tsconfig.json next.config.ts postcss.config.mjs env.ts ./
-COPY public ./public
 COPY src ./src
 
 RUN bun install
