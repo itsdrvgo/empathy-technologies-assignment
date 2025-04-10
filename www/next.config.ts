@@ -23,23 +23,6 @@ const nextConfig: NextConfig = {
     experimental: {
         authInterrupts: true,
     },
-    async headers() {
-        return [
-            {
-                source: "/(.*)",
-                headers: [
-                    {
-                        key: "Access-Control-Allow-Credentials",
-                        value: "true",
-                    },
-                    {
-                        key: "Access-Control-Allow-Origin",
-                        value: "https://qjnws0rz-3001.inc1.devtunnels.ms",
-                    },
-                ],
-            },
-        ];
-    },
 };
 
 export default nextConfig;

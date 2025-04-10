@@ -24,7 +24,6 @@ RUN bun run build
 WORKDIR /app/www
 COPY --from=deps /app/www/node_modules ./node_modules
 COPY www .
-ENV NEXT_PUBLIC_API_URL=/api
 RUN bun run build
 
 ##### RUNNER
