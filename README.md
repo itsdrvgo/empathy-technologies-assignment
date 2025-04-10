@@ -66,3 +66,35 @@ This repository contains the following directories:
 4. Use port forwarding (as described above) to configure your redirect URIs.
 
 5. Open the application in your browser and start exploring!
+
+---
+
+## Running with Docker
+
+Alternatively, you can run the entire project using Docker. This is the easiest way to test everything locally in an isolated environment.
+
+### Step 1: Set up your `.env` files
+
+-   Create `.env` files in both the `server/` and `www/` directories with the required variables. Refer to the respective READMEs in each folder for guidance.
+
+### Step 2: Build and run the containers
+
+From the project root:
+
+```bash
+docker compose up --build
+```
+
+This will:
+
+-   Build the frontend and backend using the Dockerfile in each directory.
+-   Start both containers.
+
+### Step 3: Configure your redirect URI
+
+Use **ngrok** or **VS Code's port forwarding** to expose your frontend (typically port 3000) over HTTPS.  
+Then, make sure to **add the port-forwarded URL with `/auth/callback` appended** to the list of **Valid OAuth Redirect URIs** in your Facebook Developer Portal.
+
+> Example: `https://abc123.ngrok.io/auth/callback`
+
+Once set, you can test the full Instagram login flow and features locally through the public HTTPS tunnel.
